@@ -1,0 +1,7 @@
+.docker/*
+!.docker/.gitkeep
+!.docker/Dockerfile
+__pycache__/
+*.py[cod]
+.env
+venv/
