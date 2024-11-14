@@ -7,7 +7,9 @@ app = Flask(__name__)
 # Update the DATABASE_URI to use PostgreSQL
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URL', 'postgresql://guestbook_user:yourpassword@localhost/guestbook_db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+db = SQLAlchemy(app, engine_options={
+    "pool_pre_ping": True
+})
 
 
 class Message(db.Model):
